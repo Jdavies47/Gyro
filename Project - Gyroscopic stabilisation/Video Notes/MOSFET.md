@@ -6,7 +6,7 @@ A transistor is a device that allows you to use small changes in voltage to swit
 
 ### n-channel MOSFET
 
-A n-channel MOSFET is a one type of transistor (an easiest). They work as simply as if the transistor is not powered no current can flow, and vice versa.
+A n-channel MOSFET (Metal Oxide Field Effect Transistor) is a one type of transistor (an easiest). They work as simply as if the transistor is not powered no current can flow, and vice versa.
 
 A n-channel MOSFET has three pins, known as the gate drain and source. A labelled picture of this can be found in `Project - Gyroscopic stabilisation\Video Notes\Pictures` as Note_picture_4.
 
@@ -23,3 +23,10 @@ The circuit will be either be on or off depending on the whether the gate is rec
 The gate of the transistor has a couple of limitation of the control voltage to switch the transistor on and off. The signaling voltage should be kept below 15V to avoid damages.
 
 However the drain and source voltages are a lot more flexible and dependent on the transistor, but can support much greater voltages.
+
+### More transistors
+
+- npn transistors
+- pnp transistors
+- p-channel MOSFET
+- JFET
