@@ -21,3 +21,9 @@ Following sections to be used:
   1. Aims of the project
 
 ## What is my question?
+
+Possible to do with determining the PID 
+
+## Project Plan
+
+I need to decided what my aims for the project are, so I can write the method, an date plan the work.
