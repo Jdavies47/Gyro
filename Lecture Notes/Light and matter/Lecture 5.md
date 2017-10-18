@@ -40,3 +40,17 @@ The energy between these two processes has to be distributed equally.
 Correlation between Diffusion and Drift
 
 Einsteins relation can also be expressed for the holes.
+
+##### Recombination processes
+
+- Excitation of charge carriers possible by bias voltage or radiation
+- More notes online
+
+Photons absorption created electron-hole pairs.
+The relaxing of the electron drops it back to the valance band, this is recombination
+
+The more charge carriers produced the higher the recombination will become.
+
+indirect recombination: relaxation time depends on energy level of recombinations centres.
+
+If the energy of E<sub>t</sub> is close to the intrinsic fermi energy E<sub>i</sub> then it is a efficient recombination centres

@@ -93,6 +93,10 @@ void setup() {
 
     myservo.write(90);
     delay(2000);
+    myservo.write(0);
+    delay(2000);
+    myservo.write(180);
+    delay(2000);
     accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 
     int angle = map(ax, -16384, 16384, 0, 180);
