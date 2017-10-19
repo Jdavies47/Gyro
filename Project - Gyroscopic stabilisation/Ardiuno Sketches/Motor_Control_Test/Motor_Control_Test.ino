@@ -12,6 +12,7 @@ int speed = 255;
 void setup(){
   servoControlSignal.attach(9);
 
+  // MOSFET gate pin on pin ~3
   analogWrite(gateSignal, speed);
   //Wait for the flywheel to gain some speed
   delay(30000);
