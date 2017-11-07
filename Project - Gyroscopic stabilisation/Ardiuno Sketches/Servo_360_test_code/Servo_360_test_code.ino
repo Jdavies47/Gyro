@@ -34,7 +34,9 @@ void setup() {
     }
     delay(500);
   }*/
-  myservo.write(93);
+  myservo.write(85);
+  //delay(300000);
+  //myservo.detach();
 }
 
 void loop() {/*

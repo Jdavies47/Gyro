@@ -1,6 +1,6 @@
 # Light and Matter - Lecture 4 10/10/2017
 
-### Transport properties
+  ### Transport properties
 
 Intrinsic semiconductor (n=p=n<sub>i</sub>)
 
