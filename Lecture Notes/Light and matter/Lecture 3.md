@@ -80,3 +80,4 @@ Doped semiconductor: np = n<sub>i</sub><sup>2</sup>
 ##### Band electrons
 
 LOOK OVER FERMI SURFACES
+  

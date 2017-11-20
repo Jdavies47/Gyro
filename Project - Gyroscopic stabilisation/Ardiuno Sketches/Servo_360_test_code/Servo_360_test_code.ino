@@ -8,7 +8,7 @@ Servo myservo;  // create servo object to control a servo
 
 void setup() {
 
-  int pos = 80; // variable to store the servo position
+  int pos = 1520; // variable to store the servo position
   int state = 1;
   
   Serial.begin(9600);
@@ -26,15 +26,15 @@ void setup() {
     if (state == 2){
       pos = pos -1;
     }
-    if (pos == 110){
+    if (pos == 1533){
       state = 2;
     }
-    if (pos == 80){
+    if (pos == 1528){
       state = 1;
     }
     delay(500);
   }*/
-  myservo.write(85);
+    myservo.write(1520);
   //delay(300000);
   //myservo.detach();
 }

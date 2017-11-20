@@ -84,3 +84,4 @@ Lattice mismatch f = a<sub>substrate</sub> - a<sub>film</sub> / a<sub>substrate<
 There is three IMPORTANT equations on the slide (too big to type).
 
 Scattering of charge carriers at point defects (impurities) reduces relaxation time.
+  
