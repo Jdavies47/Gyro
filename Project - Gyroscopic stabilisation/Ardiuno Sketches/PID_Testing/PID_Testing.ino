@@ -14,6 +14,11 @@ float wmoi = 0.000126; // The flywheels moment of inertia
 float bikeConst = 1.5 ; // This is a factor that need to be chnaged per system for the bike MOI
 const int buffersize = 200;
 int NRA;
+float prevServoSpeed = 0;
+int sDirection = 0;
+unsigned long lastTime = millis();
+float currentposition = 0.0000;
+float angle;
 /////////
 
 // Buffer arrays
@@ -30,7 +35,7 @@ double Setpoint, Input, Output;
 
 //Define the aggressive and conservative Tuning Parameters
 double aggKp=4, aggKi=0.2, aggKd=1;
-double consKp=0, consKi=0, consKd=0;
+double consKp=0.01, consKi=0, consKd=0;
 
 //Specify the links and initial tuning parameters
 PID myPID(&Input, &Output, &Setpoint, consKp, consKi, consKd, DIRECT);
@@ -101,6 +106,8 @@ void setup()
 
 void loop()
 {
+  Serial.println(currentposition);
+  
   int rawax, raway, rawaz;
   int rawgx, rawgy, rawgz;
   float ax, ay, az;
@@ -114,7 +121,7 @@ void loop()
   int sensorValue = analogRead(A1);
   double p = sensorValue * (0.5/ 1023.0);
 
-  myPID.SetTunings(p,consKi,consKd);
+  //myPID.SetTunings(p,consKi,consKd);
 
   if (NRA >= buffersize){ //To reset the array number to cycle through
     NRA = 0;
@@ -170,7 +177,7 @@ void loop()
     microsPrevious = microsPrevious + microsPerReading;
   }
   
-  Input = smoothRoll;
+  Input = roll;
 
   //Serial.println(Input);
 
@@ -188,14 +195,24 @@ void loop()
   myPID.Compute();
 
   float servoSpeed = servoAngVel(261.8, abs(Output), 10);
+  Serial.println(servoSpeed);
+  angle += (servoSpeed/1000)*(millis()-lastTime);
+  if (angle>1.57){
+    while(true){
+      myservo.write(1530);
+    }
+  }
+  Serial.println(angle);
+  prevServoSpeed = servoSpeed;
   float midPointDiff = pwmPeriodDiff(servoSpeed);
-
+  
   if (roll>0){
-    myservo.write(1530 + midPointDiff);
+    ServoWrite(midPointDiff, prevServoSpeed, 1);
   }
   else{
-    myservo.write(1530 - midPointDiff);
+    ServoWrite(midPointDiff, prevServoSpeed, -1);
   }
+
    
   //Serial.print("The counter roll is: ");
   //Serial.println(i);
@@ -222,17 +239,30 @@ float convertRawGyro(int gRaw) {
   return g;
 }
 
-float servoAngVel(float wangvel, float roll, float angle){
-  float sangvel = ((bikeConst*roll)/(wangvel*wmoi*angle));
-  //Serial.print("The sangvel is: ");
-  //Serial.println(sangvel);
-  return sangvel;
-}
+v
 
-long pwmPeriodDiff (float sangvel){
-  long t = (1.0907*sangvel*sangvel*sangvel*sangvel*sangvel) - (11.927*sangvel*sangvel*sangvel*sangvel) + (46.999*sangvel*sangvel*sangvel) - (78.133*sangvel*sangvel) + (63.148*sangvel) - 0.5;
-  //Serial.print("The diff is: ");
-  //Serial.println(t);
-  return t;
+void ServoWrite(long servoTime, long previousServoAngV, int dir){
+  //Serial.println("In Here");
+  unsigned long TimeNow = millis();
+  float posChange = (dir*(TimeNow - lastTime)*previousServoAngV);//*60/(2*3.141));
+  //Serial.println(posChange);
+  //Serial.println(servoTime);
+  //Serial.println(previousServoAngV);
+  //Serial.println(currentposition);
+  if (abs(currentposition) < 90){
+    if (dir>0){
+      myservo.write(1530+servoTime);
+    }
+    else{   
+      myservo.write(1530-servoTime);
+    }
+  }
+  else {
+    Serial.println("***ERROR***");
+    myservo.write(1530);
+  }
+  lastTime = millis();
+  currentposition += posChange; 
+  delay(15); 
 }
 

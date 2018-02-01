@@ -25,3 +25,17 @@ void loop() {
   Serial.println(times[order]);
 
 }
+
+float servoAngVel(float wangvel, float roll, float angle){
+  float sangvel = ((bikeConst*roll)/(wangvel*wmoi*angle));
+  //Serial.print("The sangvel is: ");
+  //Serial.println(sangvel);
+  return sangvel;
+}
+
+long pwmPeriodDiff (float sangvel){
+  long t = (1.0907*sangvel*sangvel*sangvel*sangvel*sangvel) - (11.927*sangvel*sangvel*sangvel*sangvel) + (46.999*sangvel*sangvel*sangvel) - (78.133*sangvel*sangvel) + (63.148*sangvel) - 0.5;
+  //Serial.print("The diff is: ");
+  //Serial.println(t);
+  return t;
+}

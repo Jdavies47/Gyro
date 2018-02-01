@@ -10,7 +10,7 @@ As we increase the drain voltage we get a linear increase in current until the s
       - Operation of MOSFET as low voltage leading to low power devices; applications as a switch in digital logic and memory devices.
       - Drain current: I<sub>D</sub> = -eAD<sub>n</sub> dn/dy Where n is the concentration of charge carriers.
         - (if n is small) ~ eAD<sub>n</sub> (n(0) - n(l))/(L) Where L is the gate width, n(0) the electron density at the source and n(l) is the electron density at the drain.
-        - n(0) = n<sub>i</sub>exp(e[&phi;<sub>s</sub> - &phi;<sub>B</sub>]/K<sub>B</sub>T)
+        - n(0) = n<sub>i</sub>exp(e[&phi;<sub>s</sub> - &phi;<sub>B</sub>]/K<sub>B</sub\>T)
         - n(l) = n<sub>i</sub>exp(e[&phi;<sub>s</sub> - &phi;<sub>B</sub> - V<sub>D</sub>]/K<sub>B</sub>T)
         - &phi;<sub>s</sub> is the surface potential at source.
 
@@ -67,7 +67,7 @@ P<sub>input</sub>: integration of all the photons of the solar spectrum.
 - Degrading factors:
   - Low resistivity at the metal interfaces and the pn-junction (serial resistance)
   - reduced &tau; due to recombination centres in depletion zone.
-  - 
+  -
 - Optimisation factor:
   - Large p-n area
 
