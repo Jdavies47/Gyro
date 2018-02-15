@@ -118,6 +118,12 @@ void loop() {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   delay(15);
+  Serial.print("Roll: ");
+  Serial.println(roll);
+  Serial.print("Angle contribution: ");
+  Serial.println(anglePWMTimeDifference);
+  Serial.print("Angle vel: ");
+  Serial.println(servoAngleReactionAngV);
   //Serial.println(errorFactor);
 
   if (roll>0){

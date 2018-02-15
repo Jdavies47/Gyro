@@ -12,12 +12,27 @@ void setup() {
 
   TestServo.attach(9);
 
+  TestServo.write(1530);
+
 
 }
 
-void loop() {
+void loop() {}
 
-  if (order > 1){
+  /*for (int i=1500; i<1550; ++i){
+    TestServo.write(i);
+    delay(500);
+    Serial.println(i);
+  }
+
+  for (int i=1550; i>1500; --i){
+    TestServo.write(i);
+    delay(500);
+    Serial.println(i);
+  }
+
+}
+  /*if (order > 1){
     order = 0;
   }
   times[order] = micros;
@@ -38,4 +53,4 @@ long pwmPeriodDiff (float sangvel){
   //Serial.print("The diff is: ");
   //Serial.println(t);
   return t;
-}
+}*/

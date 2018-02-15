@@ -2,14 +2,12 @@
 ////////////////////////////////////// Libary Imports ///////////////////////////////////
 #include <PID_v1.h>
 #include "CurieIMU.h"
-#include <MadgwickAHRS.h>
 #include <Servo.h>
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
 ///////////////////////////////////// Function Imports //////////////////////////////////
-Servo servo1;
-Madgwick filter;
+Servo servo1, servo2;
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -22,7 +20,9 @@ const float g = 9.81;
 const int bufferSize = 10;
 const int maxPwmChange = 200;
 const int maxAcel = 3; // This is the safety acceleration cap
-
+const int motorRig1Pin = 3;
+const int motorRig2Pin = 5;
+const int startMotorSpeed = 255;
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -42,7 +42,6 @@ int pwmDifferBuff[bufferSize];
 
 /////////////////////////////////////////// PID /////////////////////////////////////////
 
-
 PID servoPID(&bikeRollInput, &errorFactor, &bikeSetPoint, Kp, Ki, Kd, DIRECT);
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -51,9 +50,8 @@ PID servoPID(&bikeRollInput, &errorFactor, &bikeSetPoint, Kp, Ki, Kd, DIRECT);
 /////////////////////////////////////// Setup Code //////////////////////////////////////
 void setup() {
 
-  Serial.begin(9600); // This is temporary for debugging purposes only.
-  while (!Serial); // Forces a wait for the serial port to open. Needed on the genuino.
-
+  delay(3000);
+    
   CurieIMU.begin(); // Start the IMU services on the Genuino
 
   ////////////////// IMU Offsets ////////////////////////
@@ -65,7 +63,7 @@ void setup() {
   CurieIMU.setGyroOffset(Z_AXIS, -0.44);
   ///////////////////////////////////////////////////////
 
-  for (int i=0; i<bufferSize; ++i){ //FIlls the buffer full of stationary value (i.e starts in equib)
+  for (int i=0; i<bufferSize; ++i){ //Fills the buffer full of stationary value (i.e starts in equib)
     pwmDifferBuff[i] = 1530;
   }
 
@@ -73,11 +71,18 @@ void setup() {
   CurieIMU.setAccelerometerRate(25);
   CurieIMU.setGyroRange(10); // Set the gyroscope range to 10 degrees/second (high precision)
   CurieIMU.setAccelerometerRange(2); // Set the accelerometer range to 2G
-  filter.begin(25);
   servoPID.SetMode(AUTOMATIC);
   servoPID.SetOutputLimits(-200,200);
-  servo1.attach(9);
+  servo1.attach(6);
+  servo2.attach(9);
   servo1.write(1530);
+  servo2.write(1530);
+
+  systemReset();
+
+  //motorStart();
+
+  
   delay(3000);
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -104,15 +109,6 @@ void loop() {
   angle1 = getAngle1();
   angle2 = getAngle2(); // This is the angle of the flywheel
 
-  Serial.print("Angle 2: ");
-  Serial.println(angle2);
-
-  Serial.print("Angle 1: ");
-  Serial.println(angle1);
-  
-  //Serial.print("Current Pulse width: ");
-  //Serial.println(servoPwmPulse);
-
   // read accelerometer measurements from device
   CurieIMU.readMotionSensor(rawax, raway, rawaz, rawgx, rawgy, rawgz);
 
@@ -124,8 +120,6 @@ void loop() {
   float gz = convertRawGyro(rawgz);
 
   frameAngle = pitch(ax,ay,az);
-  //Serial.print("************************** ");
-  //Serial.println(frameAngle);
 
   int pulseDir = frameAngle/abs(frameAngle); //+1/-1
 
@@ -136,19 +130,22 @@ void loop() {
 
 
   /////////////////////////////// This section is angle correction roll //////////////////////////////////////////
-  float servoAngleReactionAngV = servoAngleAngV(abs(frameAngle), wheelRPM, angle);
-  float anglePWMTimeDifference = pwmPeriodDiff(servoAngleReactionAngV);
+  float servo1AngleReactionAngV = servoAngleAngV(abs(frameAngle), wheelRPM, angle1);
+  float angle1PWMTimeDifference = pwmPeriodDiff(servo1AngleReactionAngV);
+
+  float servo2AngleReactionAngV = servoAngleAngV(abs(frameAngle), wheelRPM, angle2);
+  float angle2PWMTimeDifference = pwmPeriodDiff(servo2AngleReactionAngV);
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
   ////////////////////////////////////// PID for the two Contributions ///////////////////////////////////////////
   bikeRollInput = roll; // This is the current angle of the bike.
   servoPID.Compute();
-  float totalPWMChange = (rollPWMTimeDifference+anglePWMTimeDifference);//*errorFactor;
+  float totalPWMChange = (rollPWMTimeDifference+angle1PWMTimeDifference);//*errorFactor;
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //Add to the smoothing buffer
-  pwmDifferBuff[nextRollingAverage] = 1530+(anglePWMTimeDifference*pulseDir);
+  pwmDifferBuff[nextRollingAverage] = 1530+(angle1PWMTimeDifference*pulseDir);
   int angleRollAverage = 0;
 
 
@@ -158,11 +155,11 @@ void loop() {
 
   // This is the rolling average value for PWM. CHanging the buffersize will change the amount of smoothing
   angleRollAverage /= bufferSize;
-  //Serial.print("The smoothed value is: ");
-  //Serial.println(angleRollAverage);
+
   // This angleRollAverage is the delta pulse to be passed to the servoMove function
-  //servoMove(angleRollAverage);
-  servo1.write(1550);
+  servoMove(angleRollAverage,1);
+  servoMove(1530+(angle2PWMTimeDifference*pulseDir),2);
+
   delay(15);// This will also be a important fact to how quick the system will accelerate
 
   nextRollingAverage++;
@@ -171,6 +168,29 @@ void loop() {
 
 
 ///////////////////////////////////////// Functions /////////////////////////////////////
+
+void systemReset(){ // This is to return each servo back to the servo position for the flywheels
+
+  while(getAngle1() != 0){
+    servo1.write(1543);
+  }
+  servo1.write(1530);
+
+  while(getAngle2() != 0){
+    servo2.write(1543);
+  }
+  servo2.write(1530);
+  
+}
+
+void motorStart(){ //Until RPM measurement system implimented, this is going to spin the wheel up to a constant arbituary value
+  for (int i=0; i<startMotorSpeed;++i){
+    analogWrite(motorRig1Pin,i);
+    analogWrite(motorRig2Pin,i);
+    delay(50);
+  }
+  delay(30000); // This is to replaced once RPM can be measured
+}
 
 // This function returns the servo angular velocity required to provide a corrective torque
 float servoRollAngVel(float wangvel, float rollg, float servoAngle){
@@ -197,7 +217,7 @@ float servoAngleAngV(float pitch, float wheelAngV, float servoAngle){
   return servoAngV;
 }
 
-void servoMove (int pulseSize){ //dir should be 1/-1 to point a direction.
+void servoMove (int pulseSize, int servo){ //dir should be 1/-1 to point a direction.
    /*if (abs(servoPwmPulse-pulseSize)<3){ // If the pulse change is small, i.e noise do nothing
     return;
    }*/
@@ -209,7 +229,12 @@ void servoMove (int pulseSize){ //dir should be 1/-1 to point a direction.
    else{
     servoPwmPulse += maxAcel;
    }
-   servo1.write(servoPwmPulse); 
+   if (servo == 1){
+    servo1.write(servoPwmPulse);
+   }
+   else {
+    servo2.write(servoPwmPulse);
+   }
 }
 
 boolean FAILED(){
@@ -241,13 +266,11 @@ float convertRawGyro(int gRaw) {
 }
 float getAngle1(){
   int sensorValue = analogRead(A0);
-  //Serial.println(sensorValue);
   float angle = (sensorValue+1) * (27220/1024);
   return ((int)(angle/100)-130);
 }
 float getAngle2(){
   int sensorValue = analogRead(A1);
-  //Serial.println(sensorValue);
   float angle = (sensorValue+1) * (21730/1024);
   return ((int)(angle/100)-170);
 }

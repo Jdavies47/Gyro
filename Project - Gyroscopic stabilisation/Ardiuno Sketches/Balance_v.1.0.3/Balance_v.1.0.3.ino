@@ -8,7 +8,7 @@
 
 
 ///////////////////////////////////// Function Imports //////////////////////////////////
-Servo servo1;
+Servo servo1, servo2;
 Madgwick filter;
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -22,6 +22,9 @@ const float g = 9.81;
 const int bufferSize = 10;
 const int maxPwmChange = 200;
 const int maxAcel = 3; // This is the safety acceleration cap
+const int motorRig1Pin = 3;
+const int motorRig2Pin = 5;
+const int startMotorSpeed = 255;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,7 +45,6 @@ int pwmDifferBuff[bufferSize];
 
 /////////////////////////////////////////// PID /////////////////////////////////////////
 
-
 PID servoPID(&bikeRollInput, &errorFactor, &bikeSetPoint, Kp, Ki, Kd, DIRECT);
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -51,9 +53,12 @@ PID servoPID(&bikeRollInput, &errorFactor, &bikeSetPoint, Kp, Ki, Kd, DIRECT);
 /////////////////////////////////////// Setup Code //////////////////////////////////////
 void setup() {
 
+  delay(3000);
+
   Serial.begin(9600); // This is temporary for debugging purposes only.
   while (!Serial); // Forces a wait for the serial port to open. Needed on the genuino.
-
+  Serial.println("Welcome to balance program v1.0.3");
+  
   CurieIMU.begin(); // Start the IMU services on the Genuino
 
   ////////////////// IMU Offsets ////////////////////////
@@ -76,8 +81,18 @@ void setup() {
   filter.begin(25);
   servoPID.SetMode(AUTOMATIC);
   servoPID.SetOutputLimits(-200,200);
-  servo1.attach(9);
+  servo1.attach(6);
+  servo2.attach(9);
   servo1.write(1530);
+  servo2.write(1530);
+
+  Serial.println("Starting Reset");
+  systemReset();
+  Serial.println("Finished Reset");
+  Serial.println("Starting Motors");
+  //motorStart();
+
+  
   delay(3000);
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -104,8 +119,6 @@ void loop() {
   angle1 = getAngle1();
   angle2 = getAngle2(); // This is the angle of the flywheel
 
-  Serial.print("Angle 2: ");
-  Serial.println(angle2);
 
   Serial.print("Angle 1: ");
   Serial.println(angle1);
@@ -158,11 +171,10 @@ void loop() {
 
   // This is the rolling average value for PWM. CHanging the buffersize will change the amount of smoothing
   angleRollAverage /= bufferSize;
-  //Serial.print("The smoothed value is: ");
-  //Serial.println(angleRollAverage);
+
   // This angleRollAverage is the delta pulse to be passed to the servoMove function
   //servoMove(angleRollAverage);
-  servo1.write(1550);
+
   delay(15);// This will also be a important fact to how quick the system will accelerate
 
   nextRollingAverage++;
@@ -171,6 +183,32 @@ void loop() {
 
 
 ///////////////////////////////////////// Functions /////////////////////////////////////
+
+void systemReset(){ // This is to return each servo back to the servo position for the flywheels
+
+  while(getAngle1() != 0){
+    Serial.println(getAngle1());
+    servo1.write(1550);
+  }
+  servo1.write(1530);
+
+  while(getAngle2() != 0){
+    Serial.println(getAngle2());
+    servo2.write(1550);
+  }
+  servo2.write(1530);
+  
+}
+
+void motorStart(){ //Until RPM measurement system implimented, this is going to spin the wheel up to a constant arbituary value
+  for (int i=0; i<startMotorSpeed;++i){
+    Serial.println(i);
+    analogWrite(motorRig1Pin,i);
+    analogWrite(motorRig2Pin,i);
+    delay(50);
+  }
+  while(true);
+}
 
 // This function returns the servo angular velocity required to provide a corrective torque
 float servoRollAngVel(float wangvel, float rollg, float servoAngle){
@@ -209,7 +247,8 @@ void servoMove (int pulseSize){ //dir should be 1/-1 to point a direction.
    else{
     servoPwmPulse += maxAcel;
    }
-   servo1.write(servoPwmPulse); 
+   servo1.write(servoPwmPulse);
+   servo2.write(servoPwmPulse);
 }
 
 boolean FAILED(){
