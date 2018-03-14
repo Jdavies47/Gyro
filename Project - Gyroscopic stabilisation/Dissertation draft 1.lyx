@@ -580,7 +580,7 @@ name "subsec:Flywheel-Design"
 \end_layout
 
 \begin_layout Subsection
-Flywheel Orientation
+Flywheel control
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Flywheel-Orientation"
@@ -590,15 +590,16 @@ name "subsec:Flywheel-Orientation"
 
 \end_layout
 
-\begin_layout Subsection
-Flywheel Angular Velocity Measurement 
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Flywheel-Angular-Velocity"
+\begin_layout Subsubsection
+Flywheel precession angular velocity
+\end_layout
 
-\end_inset
+\begin_layout Subsubsection
+Flywheel Orientation
+\end_layout
 
-
+\begin_layout Subsubsection
+Flywheel Angular Velocity Measurement and control
 \end_layout
 
 \begin_layout Subsection
