@@ -1,0 +1,2066 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{caption}
+\DeclareMathSizes{16}{16}{16}{16}
+\captionsetup{width=0.8\textwidth}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+date{}
+\end_layout
+
+\end_inset
+
+An Investigation of Gyroscopic of Stabilisation for Single Tracked Vehicles
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+James Edward Davies
+\end_layout
+
+\begin_layout Plain Layout
+MPhys dissertation
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Insert Completion Date Here
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/James/James_Davies_MPhys_final_year/Project - Gyroscopic stabilisation/Dissertation figures/UOY-Logo-Stacked-shield-PMS432.eps
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Department of Physics,
+\end_layout
+
+\begin_layout Plain Layout
+University of York,
+\end_layout
+
+\begin_layout Plain Layout
+Heslington,
+\end_layout
+
+\begin_layout Plain Layout
+York,
+\end_layout
+
+\begin_layout Plain Layout
+YO10 5DD
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Section*
+Abstract
+\end_layout
+
+\begin_layout Plain Layout
+Write Abstract here.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Write introduction here.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theory
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Theory"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gyroscopic Theory
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Gyroscopic-Theory"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The vector quantity angular momentum,
+\series bold
+ 
+\begin_inset Formula $\boldsymbol{L}=I\boldsymbol{\omega}$
+\end_inset
+
+, 
+\series default
+within a rotating body is formed from the inertial and velocity components
+ of the rotation.
+ It is the conservation of this quantity that gives rise to the gyroscopic
+ phenomenon.
+ In a typical example of a gyroscope, a spinning flywheel is balanced on
+ a pivot and rotating about a rod, where the angular momentum is in the
+ direction of the rod.
+ In torque free system the spinning wheel would maintain its orientation,
+ however a torque is applied to the system from gravity due to its mass.
+ The torque can be described in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:torque"
+
+\end_inset
+
+, where the force is tangential to the rotating object, producing the precessing
+ motion seen from a typical gyroscope.
+ The torque also equates to the change in angular momentum 
+\series bold
+
+\begin_inset Formula $\boldsymbol{\tau}=\frac{d\boldsymbol{L}}{dt}=\Delta\boldsymbol{L}$
+\end_inset
+
+
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\tau}=\boldsymbol{F}_{tang}\boldsymbol{\varotimes r}\label{eq:torque}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Where 
+\begin_inset Formula $\boldsymbol{r}$
+\end_inset
+
+ is the position vector and 
+\begin_inset Formula $\boldsymbol{F}{}_{tang}$
+\end_inset
+
+ is the tangential force produced as a consequence of the torque from the
+ systems mass.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The change in angular momentum maps out a circular orbit as the force produced
+ is perpendicular to the torque, this is precession of a gyroscope.
+ The torque can also be described through its mass as 
+\begin_inset Formula $\boldsymbol{\tau}=Mg\boldsymbol{r}\sin\theta_{rod}$
+\end_inset
+
+.
+ Also describing 
+\begin_inset Formula $d\boldsymbol{L}=\boldsymbol{L}d\psi$
+\end_inset
+
+ where 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is the precession angle and combing with the fact that the torque is equal
+ to the change in angular momentum we can find the rate of precession shown
+ in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:prec_rate"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\omega}_{precession}=\frac{Mg\boldsymbol{r}\sin\theta_{rod}}{\boldsymbol{L}}\label{eq:prec_rate}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reversing this physics and considering a rotating disc in a plane; if the
+ orientation of the rotating body is changed then a torque is exerted perpendicu
+lar to this motion.
+ Looking at figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-flywheel-mounted"
+
+\end_inset
+
+, there is a rotating disc mounted in a gimble that is spinning in the 
+\begin_inset Formula $xy$
+\end_inset
+
+ plane, but can freely rotate in the 
+\begin_inset Formula $xz$
+\end_inset
+
+ plane.
+ If the disc is rotated in this plane then a torque is produced in the 
+\begin_inset Formula $y$
+\end_inset
+
+ direction decribed by equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gyro_body"
+
+\end_inset
+
+.
+ The magnitude of this torque can be expressed in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gyro_body"
+
+\end_inset
+
+.This design of gimble can therefore be used to produce torques capable of
+ correcting for a roll in a single tracked vehicle.
+ However equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gyro_body"
+
+\end_inset
+
+ does not fully describe the torque produced from a continually precessing
+ body, but that of a flywheel orientation change in a single instant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\tau}{}_{disc}=I_{disc}\boldsymbol{\omega}_{precession}\boldsymbol{\omega}_{disc}\label{eq:gyro_body}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Where 
+\begin_inset Formula $\boldsymbol{\tau}$
+\end_inset
+
+
+\begin_inset Formula $_{disc}$
+\end_inset
+
+ is the torque, 
+\begin_inset Formula $I$
+\end_inset
+
+
+\begin_inset Formula $_{disc}$
+\end_inset
+
+ the moment of inertia of the disc and, 
+\begin_inset Formula $\boldsymbol{\omega}$
+\end_inset
+
+ the angular velocity of both the body's rotation and the precession.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/James/James_Davies_MPhys_final_year/Project - Gyroscopic stabilisation/Dissertation figures/Flywheel gimble.jpg
+	width 65page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A flywheel mounted in a gimble which is spinning in the 
+\begin_inset Formula $xy$
+\end_inset
+
+ but is free to rotate through this plane.
+ If a procession rotation occurs it produces a torque as a consequence of
+ the angular momentum of the disc, shown by the red arrow.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:A-flywheel-mounted"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Due to this orientation change of the flywheel as it rotates through the
+ 
+\begin_inset Formula $xy$
+\end_inset
+
+ plane, the torque produced is reducing in the 
+\begin_inset Formula $z$
+\end_inset
+
+ direction and increasing in the 
+\begin_inset Formula $x$
+\end_inset
+
+ direction, providing a yaw component.
+ This yaw component cannot be used for roll angle corrections as it is produced
+ in the plane of the vehicle; so as a consequence the usable torque can
+ be described by equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:usable_gyro"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\tau}{}_{disc}=I_{disc}\boldsymbol{\omega}_{precession}\boldsymbol{\omega}_{disc}\cos\phi\label{eq:usable_gyro}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Where 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is the angle describing the orientation of the flywheel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+System Model
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:System-Model"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:usable_gyro"
+
+\end_inset
+
+ provides information about the usable torques for corrective means in a
+ bike-like system.
+ This usable torque then needs to be equated for all counter stability torques
+ to result in a steady state system.
+ Looking at the simple system given in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-simplistic-model"
+
+\end_inset
+
+, there is two major components; the torque produced from the inertia of
+ the bikes rotation 
+\begin_inset Formula $\tau_{inertial}$
+\end_inset
+
+ and the mass of the bike leaning at angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+ to the ground 
+\begin_inset Formula $\tau{}_{mass}$
+\end_inset
+
+.
+ For this system we are treating both of these major components as acting
+ through the center of mass, so can be modeled like a heavy mass on a light
+ rigid rod.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tau_{inertial}=I_{bike}\alpha_{roll}\label{eq:inertial}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tau_{mass}=M_{bike}gl\sin\theta\label{eq:mass}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Where 
+\begin_inset Formula $I_{bike}$
+\end_inset
+
+ is the moment of inertia of the bike, 
+\begin_inset Formula $\alpha_{roll}$
+\end_inset
+
+ is the angular acceleration of the bike, 
+\begin_inset Formula $M_{bike}$
+\end_inset
+
+ is the mass of the bike, 
+\begin_inset Formula $g$
+\end_inset
+
+ is the acceleration due to gravity and 
+\begin_inset Formula $l$
+\end_inset
+
+ is the distance from the center of mass of the bike to the pivot point.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/James/James_Davies_MPhys_final_year/Project - Gyroscopic stabilisation/Dissertation figures/Bike model.jpg
+	width 35page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A simplistic model of a motorbike, a heavy mass acting through the center
+ of mass of the bike on a light stiff rod.
+ The torque applied is produced from the gravitational component as a consequenc
+e of the bikes mass.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:A-simplistic-model"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equating equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:usable_gyro"
+
+\end_inset
+
+ to equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inertial"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mass"
+
+\end_inset
+
+, then rearranging to find the precession angular velocity as shown in equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:flywheel_precession"
+
+\end_inset
+
+.
+ This equation can be used to determine the system requirements and aid
+ in the design of the flywheels.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\omega_{precession}=\frac{I_{bike}\alpha_{roll}+M_{bike}gl\sin\theta}{I_{disc}\omega_{flywheel}\cos\phi}\label{eq:flywheel_precession}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Where 
+\begin_inset Formula $I$
+\end_inset
+
+ is the moment of intertia of both the flywheel and the bike, 
+\begin_inset Formula $M$
+\end_inset
+
+ is the mass of the entire system, 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the roll angle of the bike and 
+\begin_inset Formula $\phi$
+\end_inset
+
+is the orientation of the flywheel in repsect to the frame.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end {center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Arduino
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Micro-controllers-and-code"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An Arduino is a preassembled circuit which uses a micro-controller for a
+ control unit in electric circuits.
+ They are capable of both reading and producing electrical signals, including
+ digital logic signals from the PWM pins (described by the 
+\begin_inset Formula $\thicksim$
+\end_inset
+
+on the pin).
+ PWM pins are particularly important for producing variable voltages signals
+ (0-5V) via pulse width changes which are used in the controlling of simple
+ electronic components like MOSFETS and servos.
+ Pairing the Arduino boards with the Arduino integrated development environment
+ (IDE), they can be simply programmed using the pre-exsisting core and community
+ produced open source libraries or completely in C++.
+\end_layout
+
+\begin_layout Standard
+A Genuino 101 was chosen for the systems control due the the advantage of
+ a powerful Intel Curie micro-controller and a built in Inertial Measurement
+ Unit (IMU).
+ For a measurement system a much less powerful Arduino Uno was chosen, running
+ a ATmega328P chip.
+ Data accessible from the IMU includes accelerations from accelerometers
+ and angular velocity from the gyroscopes, which can be varied in sensitivity
+ by setting acceleration range (default 
+\begin_inset Formula $\pm2G$
+\end_inset
+
+) and sampling frequency (default 25) respectively.
+ The the raw output can be converted into usable information using equations
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:accel"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gyro"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+a(mg)=\frac{Aa_{raw}}{(resolution+1)}\label{eq:accel}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+g(\textdegree s^{-1})=\frac{Bg_{raw}}{(resolution+1)}\label{eq:gyro}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+where A is the acceleration range of the accelerometer
+\emph default
+ 
+\emph on
+set in the code, B is the gyroscope rate also set in the code and the range
+ the bit measurement resolution (
+\begin_inset Formula $\pm$
+\end_inset
+
+16,284, i.e 32,768) which is the precision of both.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the three accelerations acquired from the accelerometers the angles
+ of pitch, roll and yaw can be determined.
+ Due to the the IMU's not having magnetometers within them the yaw data
+ is avoided due to drifts and inaccuracies.
+ Depending on the orientation of the IMU the pitch or roll angles can be
+ used.
+ Both of these angles can be found in degrees using the relationships shown
+ in equations 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+pitch=\arctan\left(\frac{-a_{y}}{\sqrt{a_{x}^{2}+a_{z}^{2}}}\right)\label{eq:pitch}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+roll=\arctan\left(\frac{-a_{x}}{a_{z}}\right)\label{eq:roll}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+where 
+\begin_inset Formula $a_{x}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{y}$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{z}$
+\end_inset
+
+ are the accelerations in the 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $z$
+\end_inset
+
+ directions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The gyroscopes from the sensor directly provide infomation about angluar
+ velocities, which shown in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:centi_acel"
+
+\end_inset
+
+, we can use to find the centripetal acceleration of the body.
+ It is this value we can use for the 
+\begin_inset Formula $\alpha_{roll}$
+\end_inset
+
+ in equation 5 to produce a value for the interial torques that need to
+ be countered.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{a}_{c}=\boldsymbol{\omega}^{2}\otimes\boldsymbol{r}\label{eq:centi_acel}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Where 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is the angular velocity taken from the gyroscopes in the roll direction
+ .
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Methodology
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methodology"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Test Frame Design
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Test-Frame-Design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For this investigation, code testing and system analysis was completed on
+ a bespoke frame designed and built by Dr Phil Lightfoot.
+\end_layout
+
+\begin_layout Standard
+In figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schematic"
+
+\end_inset
+
+, the rectangular frame consists of two flywheel housing units mounted on
+ bearings, whose orientation is controlled by two Parallax Continuous Rotation
+ servos.
+ Each of these housings were built with two Como Drills RE-380 DC motors
+ on either side of the flywheel housing, used to balance each unit as well
+ as power the flywheels’ rotation.
+ These motors are powered through the frame and the bearings, eliminating
+ cable snag.
+ Each housing can move independently to one another, however they are powered
+ in opposite bias rotating one flywheel clockwise and the other counter
+ clockwise.
+ This intentionally results in the housings respectively moving in opposite
+ directions, as shown in the side view of figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schematic"
+
+\end_inset
+
+, to produce corrective torques.
+ This also acts to counter any yaw toques produced; additionally better
+ maintaining a consistent centre of mass for the bike.
+ In the servo to housing gearing mechanism, a potentiometer has been introduced
+ to provide information about the orientation of the housings.
+ A dual layer of Perspex (red) provides an area for the controllers and
+ the electrical circuits, including an area for the Overlander 7.4V 2200mAh
+ Lithium-polymer (LiPo) battery to be securely mounted to the frame.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/James/James_Davies_MPhys_final_year/Project - Gyroscopic stabilisation/Dissertation figures/Bike Schematic.jpg
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+Schematic of the test frame from above, side and front view.
+ 
+\begin_inset Formula $\phi$
+\end_inset
+
+ depicts the flywheel orientation angle.
+ The front view demonstrates the roll direction for the frame, which rotates
+ on the bearings.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schematic"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The LiPo that was used to power the entire system, including the motors,
+ servos, and Arduinos.
+ Care was taken when building the setup to keep the centre of mass (CoM)
+ balanced in the middle of the width of the bike to avoid having to fight
+ and additional torques at 
+\begin_inset Formula $0\textdegree$
+\end_inset
+
+, that would cause any long term system failures.
+ If the CoM was not balanced then the flywheels would have to slowly rotate
+ to fight the additional torques, which would eventual reach the singularity
+ point of the gyroscope (Zero roll component, full yaw component).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/James/Downloads/IMG_2857 (1).JPG
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+The test frame inside the safety mounting cage.
+ The picture shows the frame mounted at its zero position, but has been
+ weighted on the top to produce destabilisation torques.
+ It is also possible to mount the frame higher, producing greater torques
+ using specially made mount raisers.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Test_frame"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The entire frame then can be mounted on a test frame with bearings as shown
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Test_frame"
+
+\end_inset
+
+, or onto two wheels to better simulate a motorbike like system.
+ The safety frame is constructed from a skeletal cube frame work, with different
+ height mounting points for the frame to rest in.
+ The system is also capable of being mounted up a few centimeters to produce
+ a small destabilisation torques to test the system in.
+ Clamps were used to better control the system, preventing complete system
+ failures and damaging the electronics.
+\end_layout
+
+\begin_layout Standard
+Additionally, in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Test_frame"
+
+\end_inset
+
+ the flywheels shown are the lightweight, low moment of inertia testing
+ flywheels.
+ These were the ones used for the majority of the development phase of the
+ project.
+ 
+\end_layout
+
+\begin_layout Subsection
+Circuits
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Circuits"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/James/James_Davies_MPhys_final_year/Project - Gyroscopic stabilisation/Dissertation figures/Circuit.jpg
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+Circuit diagram for both the control unit and the measurement system, both
+ powered from a single 7.4V 2200mAh Lithium polymer battery 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Circuit-diagram-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There was a number of considerations taken when designing the circuits,
+ firstly that the whole bike should be made up of two individual system.
+ This first is the control circuit which operates the motors, servos and
+ flywheels, the second a measurement system used purely for the development
+ of the control mechanics.
+ This decision was made due to the serial like nature of Arduino code operation;
+ for the measurement system the data taken needs to be recorded onto a microSD
+ card, which has a slow (in regards to the clock cycle of the arduino) write
+ speed.
+ This would cause a problem where servo responses would be held up by data
+ recording, amplifying destabilisation torques with 
+\begin_inset Quotes eld
+\end_inset
+
+dead
+\begin_inset Quotes erd
+\end_inset
+
+ periods of no corrective means being applied.
+ 
+\end_layout
+
+\begin_layout Standard
+For data measurement an Arduino Uno is used due to the minimal processing
+ power required.
+ Coupling this with a MPU6050 IMU which can provide information in 3 dimensions
+ from accelerators and gyroscopes.
+ Data is then saved using a 
+\end_layout
+
+\begin_layout Standard
+A 5V supply was required in the circuit for the servos and the potentiometers,
+ as not to damage the analog in pins on the Arduinos.
+ To achieve this a TO-220KC Texas Instruments voltage regulator was used.
+\end_layout
+
+\begin_layout Subsection
+Flywheel Design
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Flywheel-Design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Flywheel control
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Flywheel-Orientation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Flywheel precession angular velocity
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Flywheel-precession-angular"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Flywheel Orientation
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Flywheel-Orientation-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Flywheel Angular Velocity Measurement and control
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Flywheel-Angular-Velocity"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Code conventions
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Code-conventions-and"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Safety Precautions
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Safety-Precautions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Noise Reductions
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Noise-Reductions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Moment of Inertia Measurement 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Moment-of-Inertia"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Zero Moment System
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Zero-Moment-System"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Raised System
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Raised-System"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mounted Frame 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Mounted-Frame"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

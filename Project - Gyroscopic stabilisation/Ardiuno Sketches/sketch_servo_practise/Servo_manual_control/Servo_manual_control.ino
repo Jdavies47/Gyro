@@ -23,7 +23,21 @@ void setup() {
 }
 
 void loop() {
+<<<<<<< HEAD
   
+=======
+
+  myservo.write(0);
+  delay(2000);
+  myservo.write(180);
+  delay(2000);
+  //int sensorValue = analogRead(A0);
+
+  //int posVal = map(sensorValue, 0, 1023, 0, 180);
+  
+  //myservo.write(posVal);
+  //delay(15);
+>>>>>>> 65eddf34f33b7568ce76619148540e4488a81381
  
 }
 
