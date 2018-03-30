@@ -12,37 +12,40 @@ Servo servo1, servo2;
 
 
 ////////////////////////////////////// Global Constants /////////////////////////////////
-const float bikeConstant = 4; 
-const float bikeMass = 5;
-const float bikeHieght = 0.085; // For the moment of rotation about the base of the wheels.
+const float bikeConstant = 2; 
+const float bikeMass = 6;
+const float bikeHieght = 0.03; // 0.085For the moment of rotation about the base of the wheels.
 const float wheelMOI = 0.000126; // The flywheels moment of inertia
 const float g = 9.81;
-const int bufferSize = 10;
+const int bufferSize = 5;
 const int maxPwmChange = 200;
 const int maxAcel = 3; // This is the safety acceleration cap
 const int motorRig1Pin = 3;
 const int motorRig2Pin = 5;
-const int startMotorSpeed = 255;
+const int startMotorSpeed1 = 220;
+const int startMotorSpeed2 = 0;
+const int STOP = 1530;
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
 ///////////////////////////////////// Global Variables //////////////////////////////////
-double bikeSetPoint=0, bikeRollInput, errorFactor;
-double Kp=10, Ki=0, Kd=0;
+double bikeSetPoint=0, bikeRollInput, servoPWM;
+double Kp=2.1, Ki=0, Kd=0.0;
 double wheelRPM = 200;
 double servoAngle = 0;
 int nextRollingAverage;
-int servoPwmPulse = 1530;
+int servoPwmPulse = STOP;
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
 ///////////////////////////////////// Gloabal Buffers ///////////////////////////////////
-int pwmDifferBuff[bufferSize];
+int pwmDifferBuff1[bufferSize];
+int pwmDifferBuff2[bufferSize];
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////// PID /////////////////////////////////////////
 
-PID servoPID(&bikeRollInput, &errorFactor, &bikeSetPoint, Kp, Ki, Kd, DIRECT);
+PID servoPID(&bikeRollInput, &servoPWM, &bikeSetPoint, Kp, Ki, Kd, DIRECT);
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -64,7 +67,8 @@ void setup() {
   ///////////////////////////////////////////////////////
 
   for (int i=0; i<bufferSize; ++i){ //Fills the buffer full of stationary value (i.e starts in equib)
-    pwmDifferBuff[i] = 1530;
+    pwmDifferBuff1[i] = 1530;
+    pwmDifferBuff2[i] = 1530;
   }
 
   CurieIMU.setGyroRate(25);
@@ -72,16 +76,17 @@ void setup() {
   CurieIMU.setGyroRange(10); // Set the gyroscope range to 10 degrees/second (high precision)
   CurieIMU.setAccelerometerRange(2); // Set the accelerometer range to 2G
   servoPID.SetMode(AUTOMATIC);
-  servoPID.SetOutputLimits(-200,200);
+  servoPID.SetOutputLimits(-105,105);
   servo1.attach(6);
   servo2.attach(9);
-  servo1.write(1530);
-  servo2.write(1530);
+  servo1.write(STOP);
+  servo2.write(STOP);
 
   systemReset();
 
-  //motorStart();
+  motorStart();
 
+  //systemReset();
   
   delay(3000);
 }
@@ -94,10 +99,6 @@ void loop() {
   if(nextRollingAverage >= bufferSize){
     nextRollingAverage = 0; //Reset back to the start of the buffer
   }
-
-  //if(FAILED()){
-    //break
-  //}
   
   int rawax, raway, rawaz;
   int rawgx, rawgy, rawgz;
@@ -121,6 +122,15 @@ void loop() {
 
   frameAngle = pitch(ax,ay,az);
 
+  if(frameAngle>50){// To kill the system if fallen over.
+    while(true){
+      //servo1.detach(6);
+      //servo2.detach(9);
+      servo1.write(STOP);
+      servo2.write(STOP);
+    }
+  }
+
   int pulseDir = frameAngle/abs(frameAngle); //+1/-1
 
   //////////////////////////////// This section is for counter roll motion ///////////////////////////////////////
@@ -139,27 +149,35 @@ void loop() {
 
 
   ////////////////////////////////////// PID for the two Contributions ///////////////////////////////////////////
-  bikeRollInput = roll; // This is the current angle of the bike.
+  bikeRollInput = frameAngle; // This is the current angle of the bike.
   servoPID.Compute();
   float totalPWMChange = (rollPWMTimeDifference+angle1PWMTimeDifference);//*errorFactor;
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //Add to the smoothing buffer
-  pwmDifferBuff[nextRollingAverage] = 1530+(angle1PWMTimeDifference*pulseDir);
-  int angleRollAverage = 0;
-
+  pwmDifferBuff1[nextRollingAverage] = 1530-(angle1PWMTimeDifference*pulseDir);
+  pwmDifferBuff2[nextRollingAverage] = 1530-(angle2PWMTimeDifference*2*pulseDir);
+  int angleRollAverage1 = 0;
+  int angleRollAverage2 = 0;
 
   for (int i=0; i<bufferSize; ++i){
-    angleRollAverage += pwmDifferBuff[i];
+    angleRollAverage1 += pwmDifferBuff1[i];
+  }
+  for (int i=0; i<bufferSize; ++i){
+    angleRollAverage2 += pwmDifferBuff2[i];
   }
 
   // This is the rolling average value for PWM. CHanging the buffersize will change the amount of smoothing
-  angleRollAverage /= bufferSize;
-
+  angleRollAverage1 /= bufferSize;
+  angleRollAverage2 /= bufferSize;
+  float pwm = (servoPWM+1530);
+  float factor = 1+(sin(angle1));
   // This angleRollAverage is the delta pulse to be passed to the servoMove function
-  servoMove(angleRollAverage,1);
-  servoMove(1530+(angle2PWMTimeDifference*pulseDir),2);
-
+  //servoMove(angleRollAverage1,1);
+  servoMove(pwm,1);
+  //servoMove(pwm,2);
+  //servo1.write(1530);
+  //servo2.write(1530);
   delay(15);// This will also be a important fact to how quick the system will accelerate
 
   nextRollingAverage++;
@@ -170,26 +188,28 @@ void loop() {
 ///////////////////////////////////////// Functions /////////////////////////////////////
 
 void systemReset(){ // This is to return each servo back to the servo position for the flywheels
-
   while(getAngle1() != 0){
     servo1.write(1543);
   }
-  servo1.write(1530);
+  servo1.write(STOP);
 
   while(getAngle2() != 0){
     servo2.write(1543);
   }
-  servo2.write(1530);
+  servo2.write(STOP);
   
 }
 
 void motorStart(){ //Until RPM measurement system implimented, this is going to spin the wheel up to a constant arbituary value
-  for (int i=0; i<startMotorSpeed;++i){
+  for (int i=0; i<startMotorSpeed1;++i){
     analogWrite(motorRig1Pin,i);
+    delay(50);
+  }
+  for (int i=0; i<startMotorSpeed2;++i){
     analogWrite(motorRig2Pin,i);
     delay(50);
   }
-  delay(30000); // This is to replaced once RPM can be measured
+  delay(15000); // This is to replaced once RPM can be measured
 }
 
 // This function returns the servo angular velocity required to provide a corrective torque
@@ -217,10 +237,7 @@ float servoAngleAngV(float pitch, float wheelAngV, float servoAngle){
   return servoAngV;
 }
 
-void servoMove (int pulseSize, int servo){ //dir should be 1/-1 to point a direction.
-   /*if (abs(servoPwmPulse-pulseSize)<3){ // If the pulse change is small, i.e noise do nothing
-    return;
-   }*/
+void servoMove (int pulseSize, int servo){ // Function to move a sevro without exceeding a safe acceleration
    
    // if statement for direction
    if(servoPwmPulse-pulseSize>0){
@@ -238,7 +255,7 @@ void servoMove (int pulseSize, int servo){ //dir should be 1/-1 to point a direc
 }
 
 boolean FAILED(){
-  // Write code to check for a failed system
+  
 }
 
 
@@ -246,7 +263,6 @@ float convertRawAcceleration(int aRaw) {
   // since we are using 2G range
   // -2g maps to a raw value of -32768
   // +2g maps to a raw value of 32767
-  
   float a = (aRaw * 2.0) / 32768.0;
   return a;
 }
@@ -254,7 +270,6 @@ float convertRawAcceleration(int aRaw) {
 float pitch(float ax, float ay, float az){
   float angle = atan((-ay)/sqrt(ax*ax+az*az));
   return angle*57.2958;
-  
 }
 
 float convertRawGyro(int gRaw) {
@@ -267,7 +282,7 @@ float convertRawGyro(int gRaw) {
 float getAngle1(){
   int sensorValue = analogRead(A0);
   float angle = (sensorValue+1) * (27220/1024);
-  return ((int)(angle/100)-130);
+  return ((int)(angle/100)-134);
 }
 float getAngle2(){
   int sensorValue = analogRead(A1);
