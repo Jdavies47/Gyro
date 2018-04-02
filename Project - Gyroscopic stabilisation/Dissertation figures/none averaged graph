@@ -1,0 +1,230 @@
+******** EasyPlot save file ********
+******** graph attributes   ********
+/fpo  pd  12.00 6.00       ;page size
+/sf   "Arial"              ;font
+/sf   b   OFF              ;Bold
+/sf   i   OFF              ;Italic
+/sf   u   OFF              ;Underline
+/fpo  pt  12.00            ;base point size
+/fpo  gt  base             ;graph-title size
+/fpo  at  base             ;axis-title size
+/fpo  an  base             ;annotation size
+/fpo  lt  base             ;legend-text size
+/fpo  po  OFF              ;portrait mode
+/fpo  co  OFF              ;color
+/fpo  sc  ON               ;scale text by graph size
+/fpo  lw  3.00             ;line weight
+/sa   d   0.50             ;data mark size
+/sa   t   1.00             ;tic size
+/sa   b   0.00             ;bar separation
+//angular_grid  15
+
+******** open new graph     ********
+//pos 0 0 1 1
+/ag              
+/st    OFF                 ;3D state
+
+/sa m  3  2                ;mark, dash & color for column 2
+//cwt  9  2                ;line weight
+/sm    ON                  ;data marks
+/sc    ON                  ;connect points
+/sd    OFF                 ;dashed lines
+/sb    OFF                 ;bar
+/se x  OFF                 ;X-error bars
+/se y  OFF                 ;Y-error bars
+/td    "xy"                ;define the columns
+     0    0
+  2542    0
+  2565    0
+  2588    0
+  2612    0
+  2635    0
+  2658    0
+  2682    0
+  2704    0
+  2728    0
+  2750    0
+  2774    0
+  2797    0
+  2820    0
+  2843    0
+  2867    0
+  2890    0
+  2913    0
+  2937    0
+  2959    0
+  2983    0
+  3006    0
+  3033    0
+  3055   -1
+  3079    0
+  3103    0
+  3125    0
+  3149    0
+  3172    0
+  3196    0
+  3218    0
+  3242    0
+  3265    0
+  3288    0
+  3311    0
+  3335    0
+  3357    0
+  3381    2
+  3405    0
+  3428    1
+  3451    0
+  3474   -1
+  3498    0
+  3524    0
+  3547    1
+  3570    0
+  3594    0
+  3618   -4
+  3640    0
+  3664    0
+  3687    0
+  3710    0
+  3733    0
+  3757    0
+  3780   -3
+  3803    0
+  3826    1
+  3850    0
+  3873    0
+  3896    0
+  3920   -3
+  3943   -3
+  3966    0
+  3989   -2
+  4016    0
+  4039   -3
+  4062   -3
+  4086    3
+  4109    2
+  4133    0
+  4155   10
+  4179   11
+  4202   -3
+  4226    4
+  4248    2
+  4272    0
+  4295    2
+  4318    2
+  4342    1
+  4365    0
+  4388    2
+  4411    3
+  4435   -1
+  4458   10
+  4481    3
+  4507    0
+  4531   -3
+  4600    4
+  4622   -4
+  4646    4
+  4669    4
+  4693   -5
+  4715    5
+  4739    1
+  4762   -6
+  4785    7
+  4809   -4
+  4832   -2
+  4856   -7
+  4878    1
+  4902   -7
+  4925   14
+  4949    0
+  4971    1
+  4995    8
+  5021   -1
+  5045   -3
+  5069    0
+  5091  -14
+  5115   -2
+  5138    5
+  5162   -4
+  5184   14
+  5208   19
+  5231    5
+  5255   21
+  5277   12
+  5301   14
+  5325   13
+  5348   19
+  5371    4
+  5401   11
+  5425   11
+  5449  -11
+  5471  -15
+  5495    3
+  5521    6
+  5545    4
+  5568   -3
+  5591   -7
+  5614   11
+  5638   -9
+  5661    0
+  5684    2
+  5708   -1
+  5731   -7
+  5755  -24
+  5777   -8
+  5801  -14
+  5824   40
+  5848  -10
+  5870   11
+  5894   28
+  5917  -10
+  5941   15
+  5964   -3
+  5990   47
+  6014  -14
+  6037   24
+  6061  -29
+  6084   39
+  6107   -8
+  6130    4
+  6154  -30
+  6177   16
+  6200  -46
+  6224    4
+  6247   18
+  6270   12
+  6293  -40
+  6317   27
+  6340  -17
+  6363   16
+  6386   -8
+  6410   -1
+  6434   19
+  6460    2
+  6484   22
+  6506  -51
+  6530  -36
+  6553   18
+  6577   24
+  6599   -3
+  6623   13
+  6692  -83
+  6714  -87
+  6738  -80
+//nc                       ;end of curve
+
+
+******** x-axis ********
+/et    x "\pt18/Time (millisecond)" ;axis title
+/oaam  x ON                ;min tics
+/oaamm x ON                ;maj tics
+/ogs   x h                 ;grid style
+
+******** y-axis ********
+/et    y "\pt18/Measured Angle (degrees)" ;axis title
+/oaam  y ON                ;min tics
+/oaamm y ON                ;maj tics
+/ogs   y h                 ;grid style
+
+/et g  "\pt20/None Averaged Angle Measurements for Motor Startup" ;graph title
+/og    OFF                 ;grid
+

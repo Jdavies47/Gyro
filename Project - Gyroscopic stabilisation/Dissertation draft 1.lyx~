@@ -412,7 +412,7 @@ within a rotating body is formed from the inertial and velocity components
  In a typical example of a gyroscope, a spinning flywheel is balanced on
  a pivot and rotating about a rod, where the angular momentum is in the
  direction of the rod.
- In a torque free system the spinning wheel would maintain its orientation,
+ In torque free system the spinning wheel would maintain its orientation,
  however a torque is applied to the system from gravity due to its mass.
  The torque can be described in equation 
 \begin_inset CommandInset ref
@@ -542,7 +542,7 @@ reference "fig:A-flywheel-mounted"
 
 \end_inset
 
-, there is a rotating disc mounted in a gimbal that is spinning in the 
+, there is a rotating disc mounted in a gimble that is spinning in the 
 \begin_inset Formula $xy$
 \end_inset
 
@@ -570,7 +570,7 @@ reference "eq:gyro_body"
 
 \end_inset
 
-.This design of gimbal can therefore be used to produce torques capable of
+.This design of gimble can therefore be used to produce torques capable of
  correcting for a roll in a single tracked vehicle.
  However equation 
 \begin_inset CommandInset ref
@@ -656,7 +656,7 @@ end{center}
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -704,12 +704,12 @@ captionsetup{justification=centering}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-A flywheel mounted in a gimbal which is spinning in the 
+A flywheel mounted in a gimble which is spinning in the 
 \begin_inset Formula $xy$
 \end_inset
 
  but is free to rotate through this plane.
- If a precession rotation occurs it produces a torque as a consequence of
+ If a procession rotation occurs it produces a torque as a consequence of
  the angular momentum of the disc, shown by the red arrow.
 \begin_inset CommandInset label
 LatexCommand label

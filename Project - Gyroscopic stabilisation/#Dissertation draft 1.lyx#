@@ -960,7 +960,7 @@ end{center}
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -1518,7 +1518,7 @@ reference "fig:Schematic"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -1631,7 +1631,7 @@ The LiPo that was used to power the entire system, including the motors,
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -1651,8 +1651,8 @@ begin{center}
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename C:/Users/James/Downloads/IMG_2857 (1).JPG
-	width 60page%
+	filename Dissertation figures/Untitled.png
+	width 55page%
 
 \end_inset
 
@@ -1927,11 +1927,240 @@ name "subsec:Flywheel-precession-angular"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\emph on
+a
+\series default
+\emph default
+.
+\begin_inset Graphics
+	filename Dissertation figures/Servo Angular Velocity Response 2.pdf
+	width 40page%
+
+\end_inset
+
+
+\series bold
+\emph on
+b.
+\series default
+\emph default
+
+\begin_inset Graphics
+	filename Dissertation figures/Servo Angular Velocity Response poly.pdf
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graph 
+\series bold
+\emph on
+a.
+ 
+\series default
+\emph default
+shows the full range of data for the absolute angular velocity of the servo
+ with a change of the PWM signal.
+ The increase in PWM period slows the servo to stationary then back up to
+ full velocity in the opposite direction, which fits to a Lorentzian function
+ very well.
+ Graph 
+\series bold
+\emph on
+b.
+ 
+\series default
+\emph default
+shows half of the same data but with the axis flipped and with a 5th order
+ polynomial fitted to the data.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Servo Angular Vel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+y=ax^{5}+bx^{4}+cx^{3}+dx^{2}+fx+g max dev:2.57, r^{2}=0.999 a=1.08, b=-11.8,
+ c=46.6, d=-77.5, f=62.9, g=1530
+\end_layout
+
 \begin_layout Subsubsection
 Flywheel Orientation
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Flywheel-Orientation-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Dissertation figures/Measured Angle from Potentiometer.pdf
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The measured angle converted the voltage change across the continuous potentiome
+ter as the servo rotated at a constant RPM.
+ This highlights the 
+\begin_inset Quotes eld
+\end_inset
+
+dead
+\begin_inset Quotes erd
+\end_inset
+
+ region of the resistor.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -1971,11 +2200,281 @@ name "subsec:Safety-Precautions"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Noise Reductions
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Noise-Reductions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\emph on
+a.
+\series default
+\emph default
+
+\begin_inset Graphics
+	filename Dissertation figures/Angle measured rolling average.pdf
+	width 40page%
+
+\end_inset
+
+
+\series bold
+\emph on
+b.
+\series default
+\emph default
+
+\begin_inset Graphics
+	filename Dissertation figures/Angle measured no average.pdf
+	width 40page%
+
+\end_inset
+
+
+\begin_inset space \negthickspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\emph on
+c.
+\series default
+\emph default
+
+\begin_inset Graphics
+	filename Dissertation figures/Angle measured filtered.pdf
+	width 40page%
+
+\end_inset
+
+
+\series bold
+\emph on
+d.
+\series default
+\emph default
+
+\begin_inset Graphics
+	filename Dissertation figures/Angle measured filtered and averaged.pdf
+	width 40page%
+
+\end_inset
+
+ 
+\begin_inset space \negthickspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graphs 
+\series bold
+\emph on
+a.-d.
+
+\series default
+\emph default
+ show measured angle data of the frame clamped at 
+\begin_inset Formula $0^{\circ}$
+\end_inset
+
+ during the motor startup, but with: 
+\series bold
+\emph on
+a.
+ 
+\series default
+\emph default
+has a rolling average of 30, 
+\series bold
+\emph on
+b.
+ 
+\series default
+\emph default
+with the rolling average removed, 
+\series bold
+\emph on
+c.
+ 
+\series default
+\emph default
+with a high and low pass digital filter applied, and 
+\series bold
+\emph on
+d.
+ 
+\series default
+\emph default
+both the filters and rolling averages.
+ In graph 
+\series bold
+\emph on
+d.
+ 
+\series default
+\emph default
+the blue line is with a rolling average of 20, the red is a rolling average
+ of 50, and the black a rolling average of 150.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Dissertation figures/Test Angle measured filtered and averaged.pdf
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup{justification=centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
